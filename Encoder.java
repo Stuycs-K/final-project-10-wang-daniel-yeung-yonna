@@ -81,7 +81,7 @@ public class Encoder {
         String s = "This is a long message to check whether or not this works properly.";
 
         //Test the grid 
-        char[][] result = makeGrid("");
+        char[][] result = makeGrid("key");
         System.out.println("This is at (" + x + ", " + y +").");
         printCoord(result, x, y);
 
