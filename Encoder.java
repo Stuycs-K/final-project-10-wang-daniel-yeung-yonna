@@ -39,7 +39,7 @@ public class Encoder {
 
     public static String chaoEncoder(String alphaL, String alphaR, String plaintext){
         //for(int i = 0; i < plaintext.length(); i++){
-
+//
         //}
         return "";
     }   
