@@ -1,6 +1,10 @@
 import java.util.*;
 import java.io.*;
 public class Encoder {
+    public static String format(String s){
+        return s.replaceAll(" ", "").replaceAll(".", "").toUpperCase();
+    }
+
     public static String Lperm(String alpha, String a){
         int pos = 0;
         String newL = "";
@@ -33,11 +37,22 @@ public class Encoder {
         return perm;
     }
 
+    public static String chaoEncoder(String alphaL, String alphaR, String plaintext){
+        //for(int i = 0; i < plaintext.length(); i++){
+
+        //}
+        return "";
+    }   
+
     public static void main(String []args){
         String LAlphabet = "BFVGUHWJKNCPEDQRSTIXYLMOZA";
         String RAlphabet = "CMOPRTUVJXAYZNBQDSEFGHLWIK";
+        String plaintext = "This is a quick message to reformat my message properly.";
+
         System.out.println(Lperm(LAlphabet, "C"));
         System.out.println(Rperm(RAlphabet, "A"));
+        System.out.println(format(plaintext));
+        
     }
 }
 
