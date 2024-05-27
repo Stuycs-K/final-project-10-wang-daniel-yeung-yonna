@@ -2,19 +2,19 @@ void setup() {
   size(800, 400);
   background(255);
   
-  drawcircle(200, 200, 150, 120);
-  drawcircle(600, 200, 150, 120);
+  drawcircle(200, 200, 150, 120, "NKJWHUGVFBAZOMLYXITSRQDEPC");
+  drawcircle(600, 200, 150, 120, "SEFGHLWIKCMOPRTUVJXAYNXQD_");
 }
 
-void draw() {
-  background(255);
-  size(400, 400);
-  String s = "A";
-  fill (200);
-  text(s, 40, 40, 280, 320); // Text wraps within text box
-}
+//void draw() {
+//  background(255);
+//  size(400, 400);
+//  String s = "A";
+//  fill (200);
+//  text(s, 40, 40, 280, 320); // Text wraps within text box
+//}
 
-void drawcircle(float x, float y, float r, float inner) {
+void drawcircle(float x, float y, float r, float inner, String cipher) {
   int numsection = 26;
   float section = TWO_PI / numsection; // divides into equal sections of 26
   
@@ -42,7 +42,7 @@ void drawcircle(float x, float y, float r, float inner) {
     float letterY = y + (inner + (r - inner) / 2) * sin(middleAngle);
     
     // Draw the letter
-    char letter = (char)('A' + i); //lists the letters for the alpahbet
+    char letter = cipher.charAt(i); //lists cipher disks to get letter
     fill(0); 
     textAlign(CENTER, CENTER);
     text(letter, letterX, letterY); 
