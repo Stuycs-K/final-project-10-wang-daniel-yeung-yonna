@@ -1,28 +1,30 @@
+float leftAngleOffset = 0;
+float rightAngleOffset = PI / 26;
+
 void setup() {
   size(800, 400);
   background(255);
-  
-  drawcircle(240, 200, 150, 120, "NKJWHUGVFBAZOMLYXITSRQDEPC");
-  drawcircle(560, 200, 150, 120, "SEFGHLWIKCMOPRTUVJXAYZNXQD");
 }
 
-//void draw() {
-//  background(255);
-//  size(400, 400);
-//  String s = "A";
-//  fill (200);
-//  text(s, 40, 40, 280, 320); // Text wraps within text box
-//}
+void draw() {
+  background(255);
+  
+  leftAngleOffset -= 0.01; // Adjust the speed of rotation as needed
+  rightAngleOffset += 0.01; // Adjust the speed of rotation as needed
+  
+  drawcircle(245, 200, 150, 120, "NKJWHUGVFBAZOMLYXITSRQDEPC", leftAngleOffset);//left
+  drawcircle(555, 200, 150, 120, "SEFGHLWIKCMOPRTUVJXAYZNXQD", rightAngleOffset);//right
+}
 
-void drawcircle(float x, float y, float r, float inner, String cipher) {
+void drawcircle(float x, float y, float r, float inner, String cipher, float angleOffset) {
   int numsection = 26;
   float section = TWO_PI / numsection; // divides into equal sections of 26
   float notchRadius = r; 
   float notchSize = 20; // Size of the notch
   
   for (int i = 0; i < numsection; i++){
-    float startAngle = i * section;
-    float endAngle = (i + 1) * section;
+    float startAngle = i * section + angleOffset; // 0 * angelOffset so doesnt tilt
+    float endAngle = (i + 1) * section + angleOffset;//makes it always a section titled cuz 1 * angleOffset
     
     // outter circle
     noFill();
