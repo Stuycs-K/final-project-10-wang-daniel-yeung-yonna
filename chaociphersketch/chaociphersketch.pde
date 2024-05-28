@@ -2,8 +2,8 @@ void setup() {
   size(800, 400);
   background(255);
   
-  drawcircle(200, 200, 150, 120, "NKJWHUGVFBAZOMLYXITSRQDEPC");
-  drawcircle(600, 200, 150, 120, "SEFGHLWIKCMOPRTUVJXAYNXQD_");
+  drawcircle(240, 200, 150, 120, "NKJWHUGVFBAZOMLYXITSRQDEPC");
+  drawcircle(560, 200, 150, 120, "SEFGHLWIKCMOPRTUVJXAYZNXQD");
 }
 
 //void draw() {
@@ -17,6 +17,8 @@ void setup() {
 void drawcircle(float x, float y, float r, float inner, String cipher) {
   int numsection = 26;
   float section = TWO_PI / numsection; // divides into equal sections of 26
+  float notchRadius = r; 
+  float notchSize = 20; // Size of the notch
   
   for (int i = 0; i < numsection; i++){
     float startAngle = i * section;
@@ -46,6 +48,12 @@ void drawcircle(float x, float y, float r, float inner, String cipher) {
     fill(0); 
     textAlign(CENTER, CENTER);
     text(letter, letterX, letterY); 
+    
+    // Draw the notch, shaped like semi circle
+    float notchX = x + notchRadius * cos(middleAngle); // X position of the notch
+    float notchY = y + notchRadius * sin(middleAngle); // Y position of the notch
+    
+    arc(notchX, notchY, notchSize, notchSize, middleAngle - HALF_PI, middleAngle + HALF_PI, OPEN); // Draw the notch
   }
   
 }
