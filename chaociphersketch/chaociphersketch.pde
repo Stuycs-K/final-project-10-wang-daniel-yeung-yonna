@@ -7,7 +7,7 @@ void setup() {
 }
 
 void draw() {
-  background(255);
+  background(255); //need it to reset the background to white so it doesnt trail the rotated circle
   
   leftAngleOffset -= 0.01; // Adjust the speed of rotation as needed
   rightAngleOffset += 0.01; // Adjust the speed of rotation as needed
@@ -58,4 +58,13 @@ void drawcircle(float x, float y, float r, float inner, String cipher, float ang
     arc(notchX, notchY, notchSize, notchSize, middleAngle - HALF_PI, middleAngle + HALF_PI, OPEN); // Draw the notch
   }
   
+}
+
+void label(float x, float y, float r, float angleOffset){
+  float labelX = x + r * cos(-HALF_PI + angleOffset);
+  float labelY = y + r * sin(-HALF_PI + angleOffset);
+  
+  fill(0); 
+  textAlign(CENTER, CENTER);
+  text("zenith", labelX, labelY);
 }
