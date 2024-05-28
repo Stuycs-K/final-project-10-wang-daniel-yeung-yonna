@@ -37,23 +37,35 @@ public class Encoder {
         return finalAlpha;
     }
 
-    public static String chaoEncoder(String alphaL, String alphaR, String plaintext){
-        //for(int i = 0; i < plaintext.length(); i++){
-//
-        //}
-        return "";
-    }   
+    public static String shiftL(String alphabet, String letter) {
+        String shifted = "";
+        int pos = 0;
+        for(int i = 0; i < 26; i++){
+            if(alphabet.charAt(i) == letter.charAt(0)){
+                pos = i;
+            }
+        }
+        if(pos == 0){
+            return alphabet;
+        }
+        shifted = alphabet.substring(pos) + alphabet.substring(0, pos);
+
+        return shifted;
+    }
 
     public static void main(String []args){
+        String Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String LAlphabet = "BFVGUHWJKNCPEDQRSTIXYLMOZA";
         String RAlphabet = "CMOPRTUVJXAYZNBQDSEFGHLWIK";
         String plaintext = "This is a quick message to reformat my message properly.";
+        String letter = "W";
 
         System.out.println(Lperm(LAlphabet, "C"));
         System.out.println(Rperm(RAlphabet, "A"));
-        System.out.println(plaintext);
         System.out.println(format(plaintext));
-        
+
+        String shiftedAlphabet = shiftL(RAlphabet, letter);
+        System.out.println("Shifted Alphabet: " + shiftedAlphabet);
     }
 }
 
