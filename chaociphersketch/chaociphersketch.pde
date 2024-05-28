@@ -2,7 +2,7 @@ float leftAngleOffset = 0;
 float rightAngleOffset = PI / 26;
 
 void setup() {
-  size(800, 400);
+  size(800, 500);
   background(255);
 }
 
@@ -12,8 +12,13 @@ void draw() {
   leftAngleOffset -= 0.01; // Adjust the speed of rotation as needed
   rightAngleOffset += 0.01; // Adjust the speed of rotation as needed
   
-  drawcircle(245, 200, 150, 120, "NKJWHUGVFBAZOMLYXITSRQDEPC", leftAngleOffset);//left
-  drawcircle(555, 200, 150, 120, "SEFGHLWIKCMOPRTUVJXAYZNXQD", rightAngleOffset);//right
+  drawcircle(245, 250, 150, 120, "NKJWHUGVFBAZOMLYXITSRQDEPC", leftAngleOffset);//left
+  drawcircle(555, 250, 150, 120, "QXNZYAXJVUTRPOMCKIWLHGFESD", rightAngleOffset);//right
+  //SEFGHLWIKCMOPRTUVJXAYZNXQD
+  //DQXNZYAXJVUTRPOMCKIWLHGFES
+  //QXNZYAXJVUTRPOMCKIWLHGFESD
+  label(245, 200, 150); // Left label
+  label(555, 200, 150); // Right label
 }
 
 void drawcircle(float x, float y, float r, float inner, String cipher, float angleOffset) {
@@ -52,19 +57,20 @@ void drawcircle(float x, float y, float r, float inner, String cipher, float ang
     text(letter, letterX, letterY); 
     
     // Draw the notch, shaped like semi circle
-    float notchX = x + notchRadius * cos(middleAngle); // X position of the notch
-    float notchY = y + notchRadius * sin(middleAngle); // Y position of the notch
+    float notchX = x + notchRadius * cos(middleAngle); // X 
+    float notchY = y + notchRadius * sin(middleAngle); // Y 
     
     arc(notchX, notchY, notchSize, notchSize, middleAngle - HALF_PI, middleAngle + HALF_PI, OPEN); // Draw the notch
   }
   
 }
 
-void label(float x, float y, float r, float angleOffset){
-  float labelX = x + r * cos(-HALF_PI + angleOffset);
-  float labelY = y + r * sin(-HALF_PI + angleOffset);
+void label(float x, float y, float r) {
+  // Position for the label at the top of the circle
+  float labelX = x;
+  float labelY = y - r;
   
   fill(0); 
   textAlign(CENTER, CENTER);
-  text("zenith", labelX, labelY);
+  text("Zenith", labelX, labelY - 20); // Draw the label slightly above the arrow
 }
