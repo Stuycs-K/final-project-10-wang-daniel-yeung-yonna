@@ -37,35 +37,46 @@ public class Encoder {
         return finalAlpha;
     }
 
-    public static String shiftL(String alphabet, String letter) {
-        String shifted = "";
+    public static String[] shift(String alphabet, String alphabet2, String letter) {
+        String[] alphabets = new String[2];
+        String shiftedL = "";
+        String shiftedR = "";
         int pos = 0;
         for(int i = 0; i < 26; i++){
-            if(alphabet.charAt(i) == letter.charAt(0)){
+            if(alphabet2.charAt(i) == letter.charAt(0)){
                 pos = i;
             }
         }
-        if(pos == 0){
-            return alphabet;
-        }
-        shifted = alphabet.substring(pos) + alphabet.substring(0, pos);
 
-        return shifted;
+        if(pos == 0){
+            alphabets[0] = alphabet;
+            alphabets[1] = alphabet2;
+            return alphabets;
+        }
+
+        int Rpos = (26 - pos);
+
+        shiftedL = alphabet.substring(pos) + alphabet.substring(0, pos);
+        shiftedR = alphabet2.substring(pos) + alphabet2.substring(0, pos);
+        
+        alphabets[0] = shiftedL;
+        alphabets[1] = shiftedR;
+
+        return alphabets;
     }
 
     public static void main(String []args){
-        String Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String LAlphabet = "BFVGUHWJKNCPEDQRSTIXYLMOZA";
-        String RAlphabet = "CMOPRTUVJXAYZNBQDSEFGHLWIK";
-        String plaintext = "This is a quick message to reformat my message properly.";
-        String letter = "W";
+        String LAlphabet = "BAZOMlYXITSRQDEPCNKJWHUGVF";
+        String RAlphabet = "CKIWLHGFESDQBNZYAXJVUTRPOM";
+        //String plaintext = "This is a quick message to reformat my message properly.";
+        String letter = "A";
 
-        System.out.println(Lperm(LAlphabet, "C"));
-        System.out.println(Rperm(RAlphabet, "A"));
-        System.out.println(format(plaintext));
+        //System.out.println(Lperm(LAlphabet, "C"));
+        //System.out.println(Rperm(RAlphabet, "A"));
+        //System.out.println(format(plaintext));
 
-        String shiftedAlphabet = shiftL(RAlphabet, letter);
-        System.out.println("Shifted Alphabet: " + shiftedAlphabet);
+        String[] shiftedAlphabet = shift(LAlphabet, RAlphabet, letter);
+        System.out.println(Arrays.toString(shiftedAlphabet));
     }
 }
 
