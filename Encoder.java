@@ -1,6 +1,7 @@
 import java.util.*;
 import java.io.*;
 public class Encoder {
+    
     public static String format(String s){
         return s.replaceAll(" ", "").replaceAll("\\.", "").replaceAll(",", "").toUpperCase();   
     }
@@ -54,8 +55,6 @@ public class Encoder {
             return alphabets;
         }
 
-        int Rpos = (26 - pos);
-
         shiftedL = alphabet.substring(pos) + alphabet.substring(0, pos);
         shiftedR = alphabet2.substring(pos) + alphabet2.substring(0, pos);
         
@@ -65,18 +64,41 @@ public class Encoder {
         return alphabets;
     }
 
+    public static String chaoEncoder(String alphabetL, String alphabetR, String plaintext){
+        String plain = format(plaintext);
+        String encoded = "";
+        for(int i = 0; i < plain.length(); i++){
+            int j = i + 1;
+            if(i == 0){
+                String[] alphas = shift(alphabetL, alphabetR, plain.substring(i, j));
+                encoded += alphas[0].substring(0, 1); 
+            } else {
+                String L = alphabetL;
+                String R = alphabetR;
+                L = Lperm(L, plain.substring(i, j));
+                R = Rperm(R, plain.substring(i, j));
+                String[] alphas = shift(L, R, plain.substring(i, j));
+                encoded += alphas[0].substring(0, 1); 
+            }
+        }
+        return encoded;
+    }
+
+
     public static void main(String []args){
-        String LAlphabet = "BAZOMlYXITSRQDEPCNKJWHUGVF";
+        String LAlphabet = "BAZOMLYXITSRQDEPCNKJWHUGVF";
         String RAlphabet = "CKIWLHGFESDQBNZYAXJVUTRPOM";
-        //String plaintext = "This is a quick message to reformat my message properly.";
+        String plaintext = "This is a quick message to reformat my message properly.";
         String letter = "A";
 
         //System.out.println(Lperm(LAlphabet, "C"));
         //System.out.println(Rperm(RAlphabet, "A"));
         //System.out.println(format(plaintext));
 
-        String[] shiftedAlphabet = shift(LAlphabet, RAlphabet, letter);
-        System.out.println(Arrays.toString(shiftedAlphabet));
+        //String[] shiftedAlphabet = shift(LAlphabet, RAlphabet, letter);
+        //System.out.println(Arrays.toString(shiftedAlphabet));
+        
+        System.out.println(chaoEncoder(LAlphabet, RAlphabet, plaintext));
     }
 }
 
