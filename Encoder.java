@@ -69,36 +69,89 @@ public class Encoder {
         String encoded = "";
         for(int i = 0; i < plain.length(); i++){
             int j = i + 1;
+            String[] alphas = shift(alphabetL, alphabetR, plain.substring(i, j));
+            String R = Rperm(alphas[1], plain.substring(i, j));
+            String L = Rperm(alphas[0], plain.substring(i, j));
             if(i == 0){
-                String[] alphas = shift(alphabetL, alphabetR, plain.substring(i, j));
-                encoded += alphas[0].substring(0, 1); 
+                encoded += alphas[0].substring(0, 1);
+                System.out.println("L: " + L);
+                System.out.println("R: " + R);
             } else {
-                String L = alphabetL;
-                String R = alphabetR;
-                L = Lperm(L, plain.substring(i, j));
-                R = Rperm(R, plain.substring(i, j));
-                String[] alphas = shift(L, R, plain.substring(i, j));
-                encoded += alphas[0].substring(0, 1); 
+                System.out.println("L: " + L);
+                System.out.println("R: " + R);
             }
         }
         return encoded;
     }
 
+    public static boolean compare(String a, String b){
+        if(a.equals(b)){
+            return true;
+        } else {
+            return false;
+        }        
+    }
 
     public static void main(String []args){
-        String LAlphabet = "BAZOMLYXITSRQDEPCNKJWHUGVF";
-        String RAlphabet = "CKIWLHGFESDQBNZYAXJVUTRPOM";
-        String plaintext = "This is a quick message to reformat my message properly.";
-        String letter = "A";
+        String LAlphabet = "HXUCZVAMDSLKPEFJRIGTWOBNYQ";
+        String RAlphabet = "PTLNBQDEOYSFAVZKGJRIHWXUMC";
+        String plaintext = "WELLDONEISBETTERTHANWELLSAID";
+        String letter = "W";
+        String[] shiftedAlphabet = shift(LAlphabet, RAlphabet, letter);
 
-        //System.out.println(Lperm(LAlphabet, "C"));
-        //System.out.println(Rperm(RAlphabet, "A"));
+        String LA = shiftedAlphabet[0];
+        String RA = shiftedAlphabet[1];
+
+        //System.out.println(Rperm(RA, letter));
         //System.out.println(format(plaintext));
 
-        //String[] shiftedAlphabet = shift(LAlphabet, RAlphabet, letter);
         //System.out.println(Arrays.toString(shiftedAlphabet));
+
+        System.out.println(compare(Lperm(LA, letter), "ONYQHXUCZVAMDBSLKPEFJRIGTW"));
+        System.out.println(compare(Rperm(RA, letter), "XUCPTLNBQDEOYMSFAVZKGJRIHW"));
         
-        System.out.println(chaoEncoder(LAlphabet, RAlphabet, plaintext));
+        //System.out.println(chaoEncoder(LAlphabet, RAlphabet, plaintext));
     }
 }
 
+/*
+L: HXUCZVAMDSLKPEFJRIGTWOBNYQ
+R: PTLNBQDEOYSFAVZKGJRIHWXUMC
+I: WELLDONEISBETTERTHANWELLSAID
+O: OAHQHCNYNXTSZJRRHJBYHQKSOUJY
+D: WELLDONEISBETTERTHANWELLSAID
+
+======================================================
+          left:                     right: 
+======================================================
+HXUCZVAMDSLKPEFJRIGTWOBNYQ PTLNBQDEOYSFAVZKGJRIHWXUMC 
+
+ONYQHXUCZVAMDBSLKPEFJRIGTW XUCPTLNBQDEOYMSFAVZKGJRIHW
+ADBSLKPEFJRIGMTWONYQHXUCZV OYSFAVZKGJRIHMWXUCPTLNBQDE
+HUCZVADBSLKPEXFJRIGMTWONYQ NBDEOYSFAVZKGQJRIHMWXUCPTL
+QUCZVADBSLKPEHXFJRIGMTWONY NBEOYSFAVZKGQDJRIHMWXUCPTL
+HFJRIGMTWONYQXUCZVADBSLKPE JRHMWXUCPTLNBIEOYSFAVZKGQD
+CVADBSLKPEHFJZRIGMTWONYQXU YSAVZKGQDJRHMFWXUCPTLNBIEO
+NQXUCVADBSLKPYEHFJZRIGMTWO BIOYSAVZKGQDJERHMFWXUCPTLN
+YHFJZRIGMTWONEQXUCVADBSLKP RHFWXUCPTLNBIMOYSAVZKGQDJE
+NQXUCVADBSLKPEYHFJZRIGMTWO MOSAVZKGQDJERYHFWXUCPTLNBI
+XCVADBSLKPEYHUFJZRIGMTWONQ AVKGQDJERYHFWZXUCPTLNBIMOS
+TONQXCVADBSLKWPEYHUFJZRIGM IMSAVKGQDJERYOHFWZXUCPTLNB
+SKWPEYHUFJZRILGMTONQXCVADB RYHFWZXUCPTLNOBIMSAVKGQDJE
+ZILGMTONQXCVARDBSKWPEYHUFJ LNBIMSAVKGQDJOERYHFWZXUCPT
+JILGMTONQXCVAZRDBSKWPEYHUF LNIMSAVKGQDJOBERYHFWZXUCPT
+RBSKWPEYHUFJIDLGMTONQXCVAZ RYFWZXUCPTLNIHMSAVKGQDJOBE
+RSKWPEYHUFJIDBLGMTONQXCVAZ YFZXUCPTLNIHMWSAVKGQDJOBER
+HFJIDBLGMTONQUXCVAZRSKWPEY LNHMWSAVKGQDJIOBERYFZXUCPT
+JDBLGMTONQUXCIVAZRSKWPEYHF MWAVKGQDJIOBESRYFZXUCPTLNH
+BGMTONQUXCIVALZRSKWPEYHFJD VKQDJIOBESRYFGZXUCPTLNHMWA
+YFJDBGMTONQUXHCIVALZRSKWPE HMAVKQDJIOBESWRYFGZXUCPTLN
+HIVALZRSKWPEYCFJDBGMTONQUX RYGZXUCPTLNHMFAVKQDJIOBESW
+QXHIVALZRSKWPUEYCFJDBGMTON SWYGZXUCPTLNHRMFAVKQDJIOBE
+KPUEYCFJDBGMTWONQXHIVALZRS NHMFAVKQDJIOBRESWYGZXUCPTL
+SPUEYCFJDBGMTKWONQXHIVALZR NHFAVKQDJIOBRMESWYGZXUCPTL
+OQXHIVALZRSPUNEYCFJDBGMTKW WYZXUCPTLNHFAGVKQDJIOBRMES
+UEYCFJDBGMTKWNOQXHIVALZRSP GVQDJIOBRMESWKYZXUCPTLNHFA
+JBGMTKWNOQXHIDVALZRSPUEYCF OBMESWKYZXUCPRTLNHFAGVQDJI
+YFJBGMTKWNOQXCHIDVALZRSPUE JIBMESWKYZXUCOPRTLNHFAGVQD
+*/
