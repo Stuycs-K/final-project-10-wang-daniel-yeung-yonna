@@ -17,8 +17,22 @@ void draw() {
   //SEFGHLWIKCMOPRTUVJXAYZNXQD
   //DQXNZYAXJVUTRPOMCKIWLHGFES
   //QXNZYAXJVUTRPOMCKIWLHGFESD
-  label(245, 200, 150); // Left label
-  label(555, 200, 150); // Right label
+  labelZenith(245, 220, 150); // Left label zenith
+  labelZenith(555, 220, 150); // Right label zenith
+  labelNadir(245, 630, 150);
+  labelNadir(555, 630, 150);
+  
+  //draw arrow for right circle
+  strokeWeight(2);
+  stroke(255,0,0);
+  drawArrow(245,230,50,180); //down
+  stroke(0,255,0);
+  drawArrow(245,230,50, 0); //up
+  //draw arrow for left circle
+  stroke(0,0,255);
+  drawArrow(555,230,50,180); //down
+   stroke(0,0,255);
+  drawArrow(555,230,50,0); //up
 }
 
 void drawcircle(float x, float y, float r, float inner, String cipher, float angleOffset) {
@@ -65,7 +79,7 @@ void drawcircle(float x, float y, float r, float inner, String cipher, float ang
   
 }
 
-void label(float x, float y, float r) {
+void labelZenith(float x, float y, float r) {
   // Position for the label at the top of the circle
   float labelX = x;
   float labelY = y - r;
@@ -73,4 +87,24 @@ void label(float x, float y, float r) {
   fill(0); 
   textAlign(CENTER, CENTER);
   text("Zenith", labelX, labelY - 20); // Draw the label slightly above the arrow
+}
+
+void labelNadir(float x, float y, float r) {
+  // Position for the label at the top of the circle
+  float labelX = x;
+  float labelY = y - r;
+  
+  fill(0); 
+  textAlign(CENTER, CENTER);
+  text("Nadir", labelX, labelY - 20); // Draw the label slightly above the arrow
+}
+
+void drawArrow(int x, int y, int len, float angle){
+  pushMatrix();
+  translate(x, y);
+  rotate(degrees(angle));
+  line(0,0,len, 0);
+  line(len, 0, len - 8, -8);
+  line(len, 0, len - 8, 8);
+  popMatrix();
 }
