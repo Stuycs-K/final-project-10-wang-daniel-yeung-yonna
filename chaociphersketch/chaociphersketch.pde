@@ -17,22 +17,22 @@ void draw() {
   //SEFGHLWIKCMOPRTUVJXAYZNXQD
   //DQXNZYAXJVUTRPOMCKIWLHGFES
   //QXNZYAXJVUTRPOMCKIWLHGFESD
-  labelZenith(245, 220, 150); // Left label zenith
-  labelZenith(555, 220, 150); // Right label zenith
+  labelZenith(245, 210, 150); // Left label zenith
+  labelZenith(555, 210, 150); // Right label zenith
   labelNadir(245, 630, 150);
   labelNadir(555, 630, 150);
   
   //draw arrow for right circle
   strokeWeight(2);
   stroke(255,0,0);
-  drawArrow(245,230,50,0); //down
+  drawArrow(245,50,40, HALF_PI); //down
   stroke(0,255,0);
-  drawArrow(245,230,50, 0); //up
+  drawArrow(245,450,40, -HALF_PI); //up
   //draw arrow for left circle
   stroke(0,0,255);
-  drawArrow(555,230,50,0); //down
+  drawArrow(555,50,40,HALF_PI); //down
    stroke(0,0,255);
-  drawArrow(555,230,50,0); //up
+  drawArrow(555,450,40,-HALF_PI); //up
 }
 
 void drawcircle(float x, float y, float r, float inner, String cipher, float angleOffset) {
@@ -102,7 +102,7 @@ void labelNadir(float x, float y, float r) {
 void drawArrow(int x, int y, int len, float angle){
   pushMatrix();
   translate(x, y);
-  rotate(degrees(angle));
+  rotate(angle);
   line(0,0,len, 0);
   line(len, 0, len - 8, -8);
   line(len, 0, len - 8, 8);
