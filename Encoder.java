@@ -67,19 +67,31 @@ public class Encoder {
     public static String chaoEncoder(String alphabetL, String alphabetR, String plaintext){
         String plain = format(plaintext);
         String encoded = "";
-        for(int i = 0; i < plain.length(); i++){
+        String R = alphabetR;
+        String L = alphabetL;
+        for(int i = 0; i < plain.length(); i ++){
             int j = i + 1;
             String[] alphas = shift(alphabetL, alphabetR, plain.substring(i, j));
-            String R = Rperm(alphas[1], plain.substring(i, j));
-            String L = Rperm(alphas[0], plain.substring(i, j));
+            int pos = 0;
+            for(int k = 0; k < 26; k++){
+                if(R.charAt(k) == plaintext.charAt(i)){
+                    pos = k;
+                }
+            }
+            int pos1 = pos + 1;
+            System.out.println(Lperm(alphas[0], L.substring(pos, pos1)));
+            System.out.println(Lperm(alphas[0], L.substring(pos, pos1)));
+            String LA = Lperm(alphas[0], L.substring(pos, pos1));
+            
+            String RA = Rperm(alphas[1], plain.substring(i, j));
             if(i == 0){
                 encoded += alphas[0].substring(0, 1);
-                System.out.println("L: " + L);
-                System.out.println("R: " + R);
             } else {
-                System.out.println("L: " + L);
-                System.out.println("R: " + R);
+                System.out.println("-"+LA);
+                encoded += LA.substring(0, 1);
             }
+            R = RA;
+            L = LA;
         }
         return encoded;
     }
@@ -106,11 +118,11 @@ public class Encoder {
         //System.out.println(format(plaintext));
 
         //System.out.println(Arrays.toString(shiftedAlphabet));
-
-        System.out.println(compare(Lperm(LA, letter), "ONYQHXUCZVAMDBSLKPEFJRIGTW"));
-        System.out.println(compare(Rperm(RA, letter), "XUCPTLNBQDEOYMSFAVZKGJRIHW"));
+        //System.out.println(Lperm(LA, letter));
+        //System.out.println(compare(Lperm(LA, letter), "ADBSLKPEFJRIGMTWONYQHXUCZV"));
+        //System.out.println(compare(Rperm(RA, letter), "XUCPTLNBQDEOYMSFAVZKGJRIHW"));
         
-        //System.out.println(chaoEncoder(LAlphabet, RAlphabet, plaintext));
+        System.out.println(chaoEncoder(LAlphabet, RAlphabet, plaintext));
     }
 }
 
