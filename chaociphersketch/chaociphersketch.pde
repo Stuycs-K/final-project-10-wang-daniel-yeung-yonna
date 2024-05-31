@@ -1,5 +1,5 @@
 float leftAngleOffset = 0;
-float rightAngleOffset = PI / 26;
+float rightAngleOffset = 0;
 
 void setup() {
   size(800, 500);
@@ -17,6 +17,7 @@ void draw() {
   //SEFGHLWIKCMOPRTUVJXAYZNXQD
   //DQXNZYAXJVUTRPOMCKIWLHGFES
   //QXNZYAXJVUTRPOMCKIWLHGFESD
+  
   labelZenith(245, 210, 150); // Left label zenith
   labelZenith(555, 210, 150); // Right label zenith
   labelNadir(245, 630, 150);
@@ -25,14 +26,17 @@ void draw() {
   //draw arrow for right circle
   strokeWeight(2);
   stroke(255,0,0);
-  drawArrow(245,50,40, HALF_PI); //down
+  drawArrow(245,50,40, HALF_PI); //down from the zenith
   stroke(0,255,0);
-  drawArrow(245,450,40, -HALF_PI); //up
+  drawArrow(245,450,40, -HALF_PI); //up from the nadir
   //draw arrow for left circle
   stroke(0,0,255);
-  drawArrow(555,50,40,HALF_PI); //down
+  drawArrow(555,50,40,HALF_PI); //down from the zenith
    stroke(0,0,255);
-  drawArrow(555,450,40,-HALF_PI); //up
+  drawArrow(555,450,40,-HALF_PI); //up from the nadir
+  
+  //need to figure out how to delay at letter C
+  delay(100);
 }
 
 void drawcircle(float x, float y, float r, float inner, String cipher, float angleOffset) {
@@ -49,7 +53,8 @@ void drawcircle(float x, float y, float r, float inner, String cipher, float ang
     noFill();
     stroke(0); // Set the stroke to black
     strokeWeight(1); 
-
+    
+    //fill(255,0,0);
     arc(x, y, r * 2, r * 2, startAngle, endAngle, PIE);
     
     //inner circle
@@ -75,6 +80,12 @@ void drawcircle(float x, float y, float r, float inner, String cipher, float ang
     float notchY = y + notchRadius * sin(middleAngle); // Y 
     
     arc(notchX, notchY, notchSize, notchSize, middleAngle - HALF_PI, middleAngle + HALF_PI, OPEN); // Draw the notch
+    
+    // Draw the notch, that needs to be in between the lines not on the section
+    float notchX2 = x + notchRadius * cos(startAngle); // X 
+    float notchY2 = y + notchRadius * sin(startAngle); // Y 
+    
+    arc(notchX2, notchY2, notchSize, notchSize, middleAngle - HALF_PI, middleAngle + HALF_PI, OPEN); // Draw the notch
   }
   
 }
