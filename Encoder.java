@@ -72,6 +72,7 @@ public class Encoder {
         for(int i = 0; i < plain.length(); i ++){
             int j = i + 1;
             String[] alphas = shift(alphabetL, alphabetR, plain.substring(i, j));
+            System.out.println(plain.substring(i, j));
             String LA = Lperm(alphas[0], findPos(R, L, plain.substring(i, j)));
             String RA = Rperm(alphas[1], plain.substring(i, j));
             if(i == 0){
