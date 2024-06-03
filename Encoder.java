@@ -72,22 +72,11 @@ public class Encoder {
         for(int i = 0; i < plain.length(); i ++){
             int j = i + 1;
             String[] alphas = shift(alphabetL, alphabetR, plain.substring(i, j));
-            int pos = 0;
-            for(int k = 0; k < 26; k++){
-                if(R.charAt(k) == plaintext.charAt(i)){
-                    pos = k;
-                }
-            }
-            int pos1 = pos + 1;
-            System.out.println(Lperm(alphas[0], L.substring(pos, pos1)));
-            System.out.println(Lperm(alphas[0], L.substring(pos, pos1)));
-            String LA = Lperm(alphas[0], L.substring(pos, pos1));
-            
+            String LA = Lperm(alphas[0], findPos(R, L, plain.substring(i, j)));
             String RA = Rperm(alphas[1], plain.substring(i, j));
             if(i == 0){
                 encoded += alphas[0].substring(0, 1);
             } else {
-                System.out.println("-"+LA);
                 encoded += LA.substring(0, 1);
             }
             R = RA;
@@ -104,11 +93,22 @@ public class Encoder {
         }        
     }
 
+    public static String findPos(String input, String output, String letter){
+        int pos = 0;
+        for(int k = 0; k < 26; k++){
+            if(input.charAt(k) == letter.charAt(0)){
+                pos = k;
+            }
+        }
+        int pos1 = pos + 1;
+        return output.substring(pos, pos1);
+    }
+
     public static void main(String []args){
-        String LAlphabet = "HXUCZVAMDSLKPEFJRIGTWOBNYQ";
-        String RAlphabet = "PTLNBQDEOYSFAVZKGJRIHWXUMC";
+        String LAlphabet = "ONYQHXUCZVAMDBSLKPEFJRIGTW";
+        String RAlphabet = "XUCPTLNBQDEOYMSFAVZKGJRIHW";
         String plaintext = "WELLDONEISBETTERTHANWELLSAID";
-        String letter = "W";
+        String letter = "E";
         String[] shiftedAlphabet = shift(LAlphabet, RAlphabet, letter);
 
         String LA = shiftedAlphabet[0];
@@ -118,10 +118,10 @@ public class Encoder {
         //System.out.println(format(plaintext));
 
         //System.out.println(Arrays.toString(shiftedAlphabet));
-        //System.out.println(Lperm(LA, letter));
-        //System.out.println(compare(Lperm(LA, letter), "ADBSLKPEFJRIGMTWONYQHXUCZV"));
-        //System.out.println(compare(Rperm(RA, letter), "XUCPTLNBQDEOYMSFAVZKGJRIHW"));
-        
+        System.out.println(Lperm(LA, findPos(RAlphabet, LAlphabet, letter)));
+        System.out.println(compare(Lperm(LA, findPos(RAlphabet, LAlphabet, letter)), "ADBSLKPEFJRIGMTWONYQHXUCZV"));
+        System.out.println(compare(Rperm(RA, letter), "OYSFAVZKGJRIHMWXUCPTLNBQDE"));
+        //System.out.println(findPos("ADBSLKPEFJRIGMTWONYQHXUCZV", "PTLNBQDEOYSFAVZKGJRIHWXUMC", "W"));
         System.out.println(chaoEncoder(LAlphabet, RAlphabet, plaintext));
     }
 }
