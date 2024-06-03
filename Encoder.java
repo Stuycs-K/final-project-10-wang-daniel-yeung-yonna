@@ -71,19 +71,39 @@ public class Encoder {
         String L = alphabetL;
         for(int i = 0; i < plain.length(); i ++){
             int j = i + 1;
-            String[] alphas = shift(alphabetL, alphabetR, plain.substring(i, j));
-            System.out.println(plain.substring(i, j));
-            String LA = Lperm(alphas[0], findPos(R, L, plain.substring(i, j)));
-            String RA = Rperm(alphas[1], plain.substring(i, j));
-            if(i == 0){
-                encoded += alphas[0].substring(0, 1);
-            } else {
-                encoded += LA.substring(0, 1);
-            }
-            R = RA;
-            L = LA;
+            String[] shiftedAlphabet = shift(L, R, plaintext.substring(i, j));
+
+            String LAp = shiftedAlphabet[0];
+            String RAp = shiftedAlphabet[1];
+            
+            String LAS = Lperm(LAp, findPos(R, L, plaintext.substring(i, j)));
+            String RAS = Rperm(RAp, plaintext.substring(i, j));
+            encoded += LAS.substring(0, 1);
+            R = RAS;
+            L = LAS;
         }
         return encoded;
+    }
+
+    public static String chaoDecoder(String alphabetL, String alphabetR, String encoded){
+        String encodes = format(encoded);
+        String result = "";
+        String R = alphabetR;
+        String L = alphabetL;
+        for(int i = 0; i < encodes.length(); i ++){
+            int j = i + 1;
+            String[] shiftedAlphabet = shift(L, R, encodes.substring(i, j));
+
+            String LAp = shiftedAlphabet[0];
+            String RAp = shiftedAlphabet[1];
+            
+            String LAS = Lperm(LAp, encodes.substring(i, j));
+            String RAS = Rperm(RAp, findPos(L, R, encodes.substring(i, j)));
+            result += RAS.substring(25, 26);
+            R = RAS;
+            L = LAS;
+        }
+        return result;
     }
 
     public static boolean compare(String a, String b){
@@ -106,24 +126,19 @@ public class Encoder {
     }
 
     public static void main(String []args){
-        String LAlphabet = "ONYQHXUCZVAMDBSLKPEFJRIGTW";
-        String RAlphabet = "XUCPTLNBQDEOYMSFAVZKGJRIHW";
+        String LAlphabet = "HXUCZVAMDSLKPEFJRIGTWOBNYQ";
+        String RAlphabet = "PTLNBQDEOYSFAVZKGJRIHWXUMC";
         String plaintext = "WELLDONEISBETTERTHANWELLSAID";
-        String letter = "E";
-        String[] shiftedAlphabet = shift(LAlphabet, RAlphabet, letter);
+        String Cipher = "OAHQHCNYNXTSZJRRHJBYHQKSOUJY";
+        String letter = "L";
 
-        String LA = shiftedAlphabet[0];
-        String RA = shiftedAlphabet[1];
+        String[] shiftedAlphabets = shift(LAlphabet, RAlphabet, letter);
 
-        //System.out.println(Rperm(RA, letter));
-        //System.out.println(format(plaintext));
+        String LA = shiftedAlphabets[0];
+        String RA = shiftedAlphabets[1];
 
-        //System.out.println(Arrays.toString(shiftedAlphabet));
-        System.out.println(Lperm(LA, findPos(RAlphabet, LAlphabet, letter)));
-        System.out.println(compare(Lperm(LA, findPos(RAlphabet, LAlphabet, letter)), "ADBSLKPEFJRIGMTWONYQHXUCZV"));
-        System.out.println(compare(Rperm(RA, letter), "OYSFAVZKGJRIHMWXUCPTLNBQDE"));
-        //System.out.println(findPos("ADBSLKPEFJRIGMTWONYQHXUCZV", "PTLNBQDEOYSFAVZKGJRIHWXUMC", "W"));
         System.out.println(chaoEncoder(LAlphabet, RAlphabet, plaintext));
+        System.out.println(chaoDecoder(LAlphabet, RAlphabet, Cipher));
     }
 }
 
