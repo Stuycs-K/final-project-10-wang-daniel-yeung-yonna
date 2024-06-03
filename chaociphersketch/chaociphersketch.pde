@@ -9,14 +9,18 @@ void setup() {
 void draw() {
   background(255); //need it to reset the background to white so it doesnt trail the rotated circle
   
-  leftAngleOffset -= 0.01; // Adjust the speed of rotation as needed
-  rightAngleOffset += 0.01; // Adjust the speed of rotation as needed
+  leftAngleOffset -= 0.05; // Adjust the speed of rotation as needed
+  rightAngleOffset += 0.05; // Adjust the speed of rotation as needed
   
-  drawrightcircle(245, 250, 150, 120, "NKJWHUGVFBAZOMLYXITSRQDEPC", leftAngleOffset);//left
-  drawleftircle(555, 250, 150, 120, "QXNZYAXJVUTRPOMCKIWLHGFESD", rightAngleOffset);//right
+  drawrightcircle(245, 250, 150, 120, "BAZOMLYXITSRQDEPCNKJWHUGVF", leftAngleOffset);//left
+  drawleftircle(555, 250, 150, 120, "BQDSEFGHLWIKCMOPRTUVJXAYZN", rightAngleOffset);//right
   //SEFGHLWIKCMOPRTUVJXAYZNXQD
   //DQXNZYAXJVUTRPOMCKIWLHGFES
   //QXNZYAXJVUTRPOMCKIWLHGFESD
+  //BAZOMLYXITSRQDEPCNKJWHUGVF
+  //CMOPRTUVJXAYZNBQDSEFGHLWIK
+  //KIWLHGFESDQBNZYAXJVUTRPOMC
+  //
   
   labelZenith(245, 210, 150); // Left label zenith
   labelZenith(555, 210, 150); // Right label zenith
@@ -37,6 +41,14 @@ void draw() {
   
   //need to figure out how to delay at letter C
   delay(100);
+}
+
+void keyPressed() {
+  final int k = keyCode;
+
+  if (k == 'S')
+    if (looping)  noLoop();
+    else          loop();
 }
 
 void drawrightcircle(float x, float y, float r, float inner, String cipher, float angleOffset) {
