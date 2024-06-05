@@ -3,8 +3,8 @@
 ## Daniel Wang
 
 ### May 23
-Made a empty makefile
-Started the Encoder.java method and started on working on the chaocipher
+Made a empty makefile.
+Started the Encoder.java method and started on working on the chaocipher.
 ### May 24
 Made the left permutuation and the right permutuation method for the alphabets.
 Made a format method that would convert normal text into uppercase text with no punctuation or spaces.
