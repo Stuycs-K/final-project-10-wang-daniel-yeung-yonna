@@ -9,14 +9,18 @@ void setup() {
 void draw() {
   background(255); //need it to reset the background to white so it doesnt trail the rotated circle
   
-  leftAngleOffset -= 0.01; // Adjust the speed of rotation as needed
-  rightAngleOffset += 0.01; // Adjust the speed of rotation as needed
+  leftAngleOffset -= 0.05; // Adjust the speed of rotation as needed
+  rightAngleOffset += 0.05; // Adjust the speed of rotation as needed
   
   drawleftcircle(245, 250, 150, 120, "BAZOMLYXITSRQDEPCNKJWHUGVF", leftAngleOffset);//left
   drawrightcircle(555, 250, 150, 120, "BQDSEFGHLWIKCMOPRTUVJXAYZN", rightAngleOffset);//right
   //SEFGHLWIKCMOPRTUVJXAYZNXQD
   //DQXNZYAXJVUTRPOMCKIWLHGFES
   //QXNZYAXJVUTRPOMCKIWLHGFESD
+  //BAZOMLYXITSRQDEPCNKJWHUGVF
+  //CMOPRTUVJXAYZNBQDSEFGHLWIK
+  //KIWLHGFESDQBNZYAXJVUTRPOMC
+  //
   
   labelZenith(245, 210, 150); // Left label zenith
   labelZenith(555, 210, 150); // Right label zenith
