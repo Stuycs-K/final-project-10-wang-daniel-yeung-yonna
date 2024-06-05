@@ -45,11 +45,101 @@ void draw() {
 
 void keyPressed() {
   final int k = keyCode;
-
-  if (k == 'S')
-    if (looping)  noLoop();
-    else          loop();
+  
+    if (k == 'Q') {
+    if (looping) {
+      noLoop();
+      looping = false;
+    } else {
+      loop();
+      looping = true;
+    }
+  }
+  
+  if (k == 'C'){
+    if(looping){
+     background(255);
+     leftAngleOffset -= 0.05; // Adjust the speed of rotation as needed
+  rightAngleOffset += 0.05; // Adjust the speed of rotation as needed
+    drawleftcircle(245, 250, 150, 120, "BVGUHWJKNCPEDFQRSTIXYLMOZA", leftAngleOffset);//left
+    drawrightcircle(555, 250, 150, 120, "MORTUVJXAYZNBPQDSEFGHLWIKC", rightAngleOffset);//right
+    noLoop();
+  labelZenith(245, 210, 150); // Left label zenith
+  labelZenith(555, 210, 150); // Right label zenith
+  labelNadir(245, 630, 150);
+  labelNadir(555, 630, 150);
+  
+  //draw arrow for right circle
+  strokeWeight(2);
+  stroke(255,0,0);
+  drawArrow(245,50,40, HALF_PI); //down from the zenith
+  stroke(0,255,0);
+  drawArrow(245,450,40, -HALF_PI); //up from the nadir
+  //draw arrow for left circle
+  stroke(0,0,255);
+  drawArrow(555,50,40,HALF_PI); //down from the zenith
+   stroke(0,0,255);
+  drawArrow(555,450,40,-HALF_PI); //up from the nadir
+  } else {
+    loop();
+  }
 }
+
+  if (k == 'A'){
+    if(looping){
+     background(255);
+    drawleftcircle(245, 250, 150, 120, "OAAAAAAAAAAAAAAAAAAAAAAAAA", leftAngleOffset);//left
+    drawrightcircle(555, 250, 150, 120, "OBBBBBBBBBBBBBBBBBBBBBBBBB", rightAngleOffset);//right
+    noLoop();
+      labelZenith(245, 210, 150); // Left label zenith
+  labelZenith(555, 210, 150); // Right label zenith
+  labelNadir(245, 630, 150);
+  labelNadir(555, 630, 150);
+  
+  //draw arrow for right circle
+  strokeWeight(2);
+  stroke(255,0,0);
+  drawArrow(245,50,40, HALF_PI); //down from the zenith
+  stroke(0,255,0);
+  drawArrow(245,450,40, -HALF_PI); //up from the nadir
+  //draw arrow for left circle
+  stroke(0,0,255);
+  drawArrow(555,50,40,HALF_PI); //down from the zenith
+   stroke(0,0,255);
+  drawArrow(555,450,40,-HALF_PI); //up from the nadir
+  } else {
+    loop();
+  }
+  }
+  
+   if (k == 'T'){
+    if(looping){
+     background(255);
+    drawleftcircle(245, 250, 150, 120, "OAAAAAAAAAAAAAAAAAAAAAAAAA", leftAngleOffset);//left
+    drawrightcircle(555, 250, 150, 120, "OBBBBBBBBBBBBBBBBBBBBBBBBB", rightAngleOffset);//right
+    noLoop();
+      labelZenith(245, 210, 150); // Left label zenith
+  labelZenith(555, 210, 150); // Right label zenith
+  labelNadir(245, 630, 150);
+  labelNadir(555, 630, 150);
+  
+  //draw arrow for right circle
+  strokeWeight(2);
+  stroke(255,0,0);
+  drawArrow(245,50,40, HALF_PI); //down from the zenith
+  stroke(0,255,0);
+  drawArrow(245,450,40, -HALF_PI); //up from the nadir
+  //draw arrow for left circle
+  stroke(0,0,255);
+  drawArrow(555,50,40,HALF_PI); //down from the zenith
+   stroke(0,0,255);
+  drawArrow(555,450,40,-HALF_PI); //up from the nadir
+  } else {
+    loop();
+  }
+  }
+}
+
 
 void drawleftcircle(float x, float y, float r, float inner, String cipher, float angleOffset) {
   int numsection = 26;
