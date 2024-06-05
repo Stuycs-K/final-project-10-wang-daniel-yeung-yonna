@@ -126,6 +126,7 @@ public class Encoder {
     }
 
     public static void main(String []args){
+        /* 
         String LAlphabet = "HXUCZVAMDSLKPEFJRIGTWOBNYQ";
         String RAlphabet = "PTLNBQDEOYSFAVZKGJRIHWXUMC";
         String plaintext = "WELLDONEISBETTERTHANWELLSAID";
@@ -135,10 +136,19 @@ public class Encoder {
         String[] shiftedAlphabets = shift(LAlphabet, RAlphabet, letter);
 
         String LA = shiftedAlphabets[0];
-        String RA = shiftedAlphabets[1];
+        String RA = shiftedAlphabets[1]; 
+        */
+        
+        String LeftAlphabet = new String(args[1]);
+        String RightAlphabet = new String(args[2]);
+        String Text = new String(args[3]);
 
-        System.out.println(chaoEncoder(LAlphabet, RAlphabet, plaintext));
-        System.out.println(chaoDecoder(LAlphabet, RAlphabet, Cipher));
+        if(args[0].equals("encoder")){
+            System.out.println(chaoEncoder(LeftAlphabet, RightAlphabet, Text));
+        }
+        if(args[0].equals("decoder")){
+            System.out.println(chaoDecoder(LeftAlphabet, RightAlphabet, Text));
+        }
     }
 }
 
