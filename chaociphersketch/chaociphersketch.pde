@@ -12,8 +12,8 @@ void draw() {
   leftAngleOffset -= 0.05; // Adjust the speed of rotation as needed
   rightAngleOffset += 0.05; // Adjust the speed of rotation as needed
   
-  drawrightcircle(245, 250, 150, 120, "BAZOMLYXITSRQDEPCNKJWHUGVF", leftAngleOffset);//left
-  drawleftircle(555, 250, 150, 120, "BQDSEFGHLWIKCMOPRTUVJXAYZN", rightAngleOffset);//right
+  drawleftcircle(245, 250, 150, 120, "BAZOMLYXITSRQDEPCNKJWHUGVF", leftAngleOffset);//left
+  drawrightcircle(555, 250, 150, 120, "BQDSEFGHLWIKCMOPRTUVJXAYZN", rightAngleOffset);//right
   //SEFGHLWIKCMOPRTUVJXAYZNXQD
   //DQXNZYAXJVUTRPOMCKIWLHGFES
   //QXNZYAXJVUTRPOMCKIWLHGFESD
@@ -51,7 +51,7 @@ void keyPressed() {
     else          loop();
 }
 
-void drawrightcircle(float x, float y, float r, float inner, String cipher, float angleOffset) {
+void drawleftcircle(float x, float y, float r, float inner, String cipher, float angleOffset) {
   int numsection = 26;
   float section = TWO_PI / numsection; // divides into equal sections of 26
   float notchRadius = r; 
@@ -97,7 +97,7 @@ void drawrightcircle(float x, float y, float r, float inner, String cipher, floa
   
 }
 
-void drawleftircle(float x, float y, float r, float inner, String cipher, float angleOffset) {
+void drawrightcircle(float x, float y, float r, float inner, String cipher, float angleOffset) {
   int numsection = 26;
   float section = TWO_PI / numsection; // divides into equal sections of 26
   float notchRadius = r; 
