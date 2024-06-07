@@ -24,6 +24,8 @@ Make sure the left and right disks are engaged. <br />
 
 //Photo of the chaocipher just not moving
 
+AS you can see, the left disk is read from left to right while the right disk is read from right to left. Both start at the zenith. <br />
+
 Step 2: <br />
 Rotate the right disk counter clockwise until the zenith (top of the disk) is "C", the first letter in the cipher. <br />
 
@@ -32,3 +34,5 @@ Rotate the right disk counter clockwise until the zenith (top of the disk) is "C
 Rotating the right disk has also rotated the left disk as well. <br />
 This letter on the left disk's zenith is the encoded text's first letter. <br />
 
+Step 3: <br />
+Permutate the left alphabet: BAZOMLYXITSRQDEPCNKJWHUGVF
