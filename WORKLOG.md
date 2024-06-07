@@ -16,12 +16,18 @@ Working on the Encoder for 4 days and finally got it working on June 3rd, finish
 ### June 5
 Finished the empty makefile, and got it working.
 
-## GROUP MEMBER 2
+## Yonna Yeung
 
-### date x
+### May 24th
+Started Sketch for processing and made the circle for the wheel.
+### May 25th
+Added letters in each of the 26 sections of the wheel in the order of the alphabet.
+### May 27th
+Made the right circle one section offset to the left one so it looks like it is interlocking with each other. Drew notches on each section and added the correct letters of chaocipher into each section.
+### May 28th
+Horiozontally flipped the right letters since the circles are turning opposite ways. Moved each letter one section ahead so it matched with the Zenith point. Added "Zenith" and "Nadir onto the circles.
+### May 30th
+Trying to figure out how the radian and degree function work in processing for my arrows to point up and down. had to restore some functions cause i did something stupid wtih resetting commits.
 
-info
 
-### date y
 
-info
