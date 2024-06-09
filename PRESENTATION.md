@@ -41,9 +41,9 @@ Starting Alphabet: CKIWLHGFESDQBNZYAXJVUTRPOM <br />
 Shift the first letter of the alphabet to the last letter. <br />
 KIWLHGFESDQBNZYAXJVUTRPOMC <br />
 Remove the third letter of the alphabet, leaving a hole. <br />
-KI LHGFESDQBNZYAXJVUTRPOMC <br />
+KI_LHGFESDQBNZYAXJVUTRPOMC <br />
 Shift the letters "LHGFESDQBNZ" over by one, covering the hole and leaving a new hole in the nadir. <br />
-KILHGFESDQBNZ YAXJVUTRPOMC <br />
+KILHGFESDQBNZ_YAXJVUTRPOMC <br />
 Insert the third letter of the alphabet ("W") in the nadir, permutating the right alphabet. <br />
 KILHGFESDQBNZWYAXJVUTRPOMC <br />
 
