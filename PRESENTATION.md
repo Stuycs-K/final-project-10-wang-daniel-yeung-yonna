@@ -9,14 +9,17 @@ Picture of John F. Byrne
 Left Alphabet:  BAZOMLYXITSRQDEPCNKJWHUGVF <br />
 Right Alphabet: CKIWLHGFESDQBNZYAXJVUTRPOM <br />
 Plain Text: CAT <br />
-Step 1: <br />
-Make sure the left and right disks are engaged. <br />
+Zenith: The first letter of the alphabet.
+Nadir: The middle letter of the alphabet (letter 14).
+Step 1: Engaging the Disks <br />
+Make sure the left and right disks are engaged. This means verifying that the first letter of the right and left alphabte match up in the disks. <br />
 
 //Photo of the chaocipher just not moving
 
-AS you can see, the left disk is read from left to right while the right disk is read from right to left. Both start at the zenith. <br />
+As you can see, comparing the plaintext alphabet to the disk, the left disk is read from left to right while the right disk is read from right to left. Both start at the zenith. <br />
 
-Step 2: <br />
+Step 2: First Encoded Letter <br />
+
 Rotate the right disk counter clockwise until the zenith (top of the disk) is "C", the first letter in the cipher. <br />
 
 //Photo of the chaocipher with C at the zenith
@@ -24,5 +27,27 @@ Rotate the right disk counter clockwise until the zenith (top of the disk) is "C
 Rotating the right disk has also rotated the left disk as well. <br />
 This letter on the left disk's zenith is the encoded text's first letter. <br />
 
-Step 3: <br />
-Permutate the left alphabet: BAZOMLYXITSRQDEPCNKJWHUGVF
+Step 3: Permutating the Left Alphabet <br />
+Starting Alphabet: BAZOMLYXITSRQDEPCNKJWHUGVF <br />
+Remove the second letter of the alphabet, leaving a hole. <br />
+B ZOMLYXITSRQDEPCNKJWHUGVF <br />
+Move the letters "ZOMLYXITSRQD" over by one, covering the hole and leaving a new hole in the nadir. <br />
+BZOMLYXITSRQD EPCNKJWHUGVF <br />
+Insert the second letter of the alphabet ("A") in the nadir, permutating the left alphabet. <br />
+BZOMLYXITSRQDAEPCNKJWHUGVF <br />
+
+Step 4: Permutating the Right Alphabet <br />
+Starting Alphabet: CKIWLHGFESDQBNZYAXJVUTRPOM <br />
+Shift the first letter of the alphabet to the last letter. <br />
+KIWLHGFESDQBNZYAXJVUTRPOMC <br />
+Remove the third letter of the alphabet, leaving a hole. <br />
+KI LHGFESDQBNZYAXJVUTRPOMC <br />
+Shift the letters "LHGFESDQBNZ" over by one, covering the hole and leaving a new hole in the nadir. <br />
+KILHGFESDQBNZ YAXJVUTRPOMC <br />
+Insert the third letter of the alphabet ("W") in the nadir, permutating the right alphabet. <br />
+KILHGFESDQBNZWYAXJVUTRPOMC <br />
+
+Step 5: Rinse and Repeat <br />
+Using the alphabets that were just permutated as the new starting alphabets and repeat this process until everything is encrypted. <br />
+Yonna will show how it works using visuals. <br />
+The final encrypted text is "BJP". <br />
