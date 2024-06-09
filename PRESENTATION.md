@@ -1,5 +1,5 @@
 # The Chaocipher's History
-John F. Byrne was born in Ireland in 1880, and he had the idea to create a cipher in 1918, after moving to New York to become a writer. <br />This cipher was called the Chaocipher, which he tried selling from 1918 to 1953 to the government to no avail. Funnily enough, this cipher was actually impossible to crack, being unsolved for half a century and also being small enough to fit inside a cigar box. The only reason he couldn't sell the cipher was due to his way of disclosing the information to the government in his attempts to sell it. He just refused to send the full details of his cipher to the government due to him not being a cryptanalyst, always saying that his cipher was indecipherable. This caused him to never be able to sell the cipher and instead in 1953, he created his autobiography, Silent Years. In this book, he included examples of enciphered texts such as the Declaration of Independence and the Gettysburg Address to give the reader examples of ciphertext and plaintext pairs. He wanted people to try and figure out how his cipher worked. His cipher's inner mechanism was never figured out, but in 2010, the chaocipher's inner workings were revealed by Patricia Byrne, John Byrne’s son’s widow.
+John F. Byrne was born in Ireland in 1880, and he had the idea to create a cipher in 1918, after moving to New York to become a writer. This cipher was called the Chaocipher, which he tried selling from 1918 to 1953 to the government to no avail. Funnily enough, this cipher was actually impossible to crack, being unsolved for half a century and also being small enough to fit inside a cigar box. The only reason he couldn't sell the cipher was due to his way of disclosing the information to the government in his attempts to sell it. He just refused to send the full details of his cipher to the government due to him not being a cryptanalyst, always saying that his cipher was indecipherable. This caused him to never be able to sell the cipher and instead in 1953, he created his autobiography, Silent Years. In this book, he included examples of enciphered texts such as the Declaration of Independence and the Gettysburg Address to give the reader examples of ciphertext and plaintext pairs. He wanted people to try and figure out how his cipher worked. His cipher's inner mechanism was never figured out, but in 2010, the chaocipher's inner workings were revealed by Patricia Byrne, John Byrne’s son’s widow.
 
 ![image](https://github.com/Stuycs-K/final-project-10-wang-daniel-yeung-yonna/assets/124080285/48b72928-6970-4f5b-8617-42d9ccec2631)
 
@@ -20,7 +20,7 @@ As you can see, comparing the plaintext alphabet to the disk, the left disk is r
 
 Step 2: First Encoded Letter <br />
 
-Rotate the right disk counter clockwise until the zenith (top of the disk) is "C", the first letter in the cipher. <br />
+Rotate the right disk counter clockwise until the zenith (top of the disk) is "C", the first letter in the plaintext. <br />
 
 //Photo of the chaocipher with C at the zenith
 
@@ -51,3 +51,9 @@ Step 5: Rinse and Repeat <br />
 Using the alphabets that were just permutated as the new starting alphabets and repeat this process until everything is encrypted. <br />
 Yonna will show how it works using visuals. <br />
 The final encrypted text is "BJP". <br />
+
+Decryption: <br />
+The process to decrypt this cipher follows the same step by step process, with a few changes. <br />
+In Step 2, instead of rotating the right disk counter clockwise until the first letter of the plaintext is at the zenith, you rotate the left disk clockwise until the first letter of the encrypted text is at the zenith, and the letter at the right disk's zenith is the first letter of the decrypted text. <br />
+
+
