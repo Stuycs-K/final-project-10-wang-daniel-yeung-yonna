@@ -30,6 +30,17 @@ Made the right circle one section offset to the left one so it looks like it is 
 Horiozontally flipped the right letters since the circles are turning opposite ways. Moved each letter one section ahead so it matched with the Zenith point. Added "Zenith" and "Nadir onto the circles.
 ### May 30th
 Trying to figure out how the radian and degree function work in processing for my arrows to point up and down. had to restore some functions cause i did something stupid wtih resetting commits.
-
+### May 31th
+Fixed the title on the right circle because it is supposed to match perfectly. I tried to make the notches on the right circle in between the sections but need to figure out how to remove the original one, Ended up just creating a new function.
+### Jun 3rd
+Fixed letters in the wheel to match and fixed notches.
+### Jun 4th
+Fixed the function names for each circle. I had the left and right drawcircles reversed.
+### Jun 5th
+Made a function that would pause when the keybpressed. 
+### June 9th
+Continued on the keypressed functions. Pressing Q would make the original stop. Pressing C would permutate the first set of letters and then find letter A. Presseing A would permutate the set of letters the second time and find the letter T. 
+### June 10th
+Created the google slides and did more orgnaizing with the files and also filmed the video. Finalized the code. 
 
 
