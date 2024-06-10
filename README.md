@@ -2,7 +2,7 @@
 ## Group Info
 This is a team of 2, consisting of Daniel Wang and Yonna Yeung. <br />
 ## Overview
-We are working on the chaocipher. <br />
+Chaocipher <br />
 ## Instructions
 The java code works using makefile. <br />
 The alphabets that you put into the encoder and decoder should be 26 letters with no repeating letters. <br />
