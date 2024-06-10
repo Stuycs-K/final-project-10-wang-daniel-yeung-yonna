@@ -14,7 +14,8 @@ Nadir: The middle letter of the alphabet (letter 14).
 Step 1: Engaging the Disks <br />
 Make sure the left and right disks are engaged. This means verifying that the first letter of the right and left alphabte match up in the disks. <br />
 
-//Photo of the chaocipher just not moving
+![image](https://github.com/Stuycs-K/final-project-10-wang-daniel-yeung-yonna/assets/124080285/29578de8-2a05-48d8-a0c4-0e804fb262ca)
+
 
 As you can see, comparing the plaintext alphabet to the disk, the left disk is read from left to right while the right disk is read from right to left. Both start at the zenith. <br />
 
@@ -22,7 +23,7 @@ Step 2: First Encoded Letter <br />
 
 Rotate the right disk counter clockwise until the zenith (top of the disk) is "C", the first letter in the plaintext. <br />
 
-//Photo of the chaocipher with C at the zenith
+![image](https://github.com/Stuycs-K/final-project-10-wang-daniel-yeung-yonna/assets/124080285/00860e4f-20a2-498d-bb64-debb47ce3a4b)
 
 Rotating the right disk has also rotated the left disk as well. <br />
 This letter on the left disk's zenith is the encoded text's first letter. <br />
