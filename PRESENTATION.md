@@ -30,7 +30,7 @@ This letter on the left disk's zenith is the encoded text's first letter. <br />
 Step 3: Permutating the Left Alphabet <br />
 Starting Alphabet: BAZOMLYXITSRQDEPCNKJWHUGVF <br />
 Remove the second letter of the alphabet, leaving a hole. <br />
-B ZOMLYXITSRQDEPCNKJWHUGVF <br />
+B_ZOMLYXITSRQDEPCNKJWHUGVF <br />
 Move the letters "ZOMLYXITSRQD" over by one, covering the hole and leaving a new hole in the nadir. <br />
 BZOMLYXITSRQD EPCNKJWHUGVF <br />
 Insert the second letter of the alphabet ("A") in the nadir, permutating the left alphabet. <br />
