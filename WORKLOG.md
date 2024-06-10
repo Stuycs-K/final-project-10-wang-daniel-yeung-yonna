@@ -15,7 +15,7 @@ Also started to work on the Encoder itself. <br/>
 Working on the Encoder for 4 days and finally got it working on June 3rd, finishing both the encoder and decoder method. <br/>
 ### June 5
 Finished the empty makefile, and got it working. <br/>
-## June 6-10
+### June 6-10
 Finished the presentation and organizing all of the files. <br/>
 
 ## Yonna Yeung
