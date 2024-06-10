@@ -1,6 +1,6 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/ecp4su41)
 ## Group Info
-This is the group Potato, consisting of Daniel Wang and Yonna Yeung. Our team is called The Potato. <br />
+This is the group Potato, consisting of Daniel Wang and Yonna Yeung. <br />
 ## Overview
 Chaocipher <br />
 ## Instructions
