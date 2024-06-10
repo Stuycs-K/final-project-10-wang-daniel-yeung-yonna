@@ -1,5 +1,9 @@
 float leftAngleOffset = 0;
 float rightAngleOffset = 0;
+boolean looping = true; // To keep track of the loop state
+String leftCipher = "BAZOMLYXITSRQDEPCNKJWHUGVF"; //BAZOMLYXITSRQDEPCNKJWHUGVF
+String rightCipher = "BQDSEFGHLWIKCMOPRTUVJXAYZN"; //CKIWLHGFESDQBNZYAXJVUTRPOM
+
 
 void setup() {
   size(800, 500);
@@ -12,8 +16,8 @@ void draw() {
   leftAngleOffset -= 0.05; // Adjust the speed of rotation as needed
   rightAngleOffset += 0.05; // Adjust the speed of rotation as needed
   
-  drawleftcircle(245, 250, 150, 120, "BAZOMLYXITSRQDEPCNKJWHUGVF", leftAngleOffset);//left
-  drawrightcircle(555, 250, 150, 120, "BQDSEFGHLWIKCMOPRTUVJXAYZN", rightAngleOffset);//right
+  drawleftcircle(245, 250, 150, 120, leftCipher, leftAngleOffset);//left
+  drawrightcircle(555, 250, 150, 120, rightCipher, rightAngleOffset);//right
   //SEFGHLWIKCMOPRTUVJXAYZNXQD
   //DQXNZYAXJVUTRPOMCKIWLHGFES
   //QXNZYAXJVUTRPOMCKIWLHGFESD
@@ -45,11 +49,71 @@ void draw() {
 
 void keyPressed() {
   final int k = keyCode;
-
-  if (k == 'S')
-    if (looping)  noLoop();
-    else          loop();
+  
+  if (k == 'Q') {
+    leftCipher = "BAZOMLYXITSRQDEPCNKJWHUGVF";
+    //BAZOMLYXITSRQDEPCNKJWHUGVF
+    rightCipher = "BQDSEFGHLWIKCMOPRTUVJXAYZN";
+    //BQDSEFGHLWIKC MOPRTUVJXAYZN
+    //CKIWLHGFESDQB NZYAXJVUTRPOM
+    if (looping) {
+      noLoop();
+    } else {
+      loop();
+    }
+    looping = !looping;
+  }
+  
+  if (k == 'C') { //Pressing C changes the perumtated alphabet for A
+    if (leftCipher.equals("BAZOMLYXITSRQDEPCNKJWHUGVF")) {
+      leftCipher = "PCNKJWHUGVFBZOMLYXITSRQDAE";
+      rightCipher = "IKCMOPRTUVJXAYWZNBQDSEFGHL";
+      //AXJVUTRPOMCKI LHGFESDQBNZWY
+      //IKCMOPRTUVJXAYWZNBQDSEFGHL
+      
+      
+    } else {
+      leftCipher = "PCNKJWHUGVFBZOMLYXITSRQDAE";
+      rightCipher = "IKCMOPRTUVJXAYWZNBQDSEFGHL";
+    }
+    toggleLooping();
+  }
+  
+  if (k == 'A') { //Pressing C changes the perumtated alphabet for T
+    if (leftCipher.equals("PCNKJWHUGVFBZOMLYXITSRQDAE")) {
+      leftCipher = "JWHUGVFBZOCMLYXITSRQDAEPNK";
+      rightCipher = "FGVHLIKCMOPRTUJXAYWZNBQDSE";
+     //TRPOMCKILHVGF ESDQBNZWYAXJU
+     //FGVHLIKCMOPRTUJXAYWZNBQDSE
+      
+    } else {
+      leftCipher = "JWHUGVFBZOCMLYXITSRQDAEPNK";
+      rightCipher = "FGVHLIKCMOPRTUJXAYWZNBQDSE";
+    }
+    toggleLooping();
+  }
+  
+  //if (k == 'T') {
+  //  if (leftCipher.equals("GHWJKNPEDFQRSUTIXYLCMOZABV")) {
+  //    leftCipher = "BAZOMLYXITSRQDEPCNKJWHUGVF";
+  //    rightCipher = "BQDSEFGHLWIKCMOPRTUVJXAYZN";
+  //  } else {
+  //    leftCipher = "GHWJKNPEDFQRSUTIXYLCMOZABV";
+  //    rightCipher = "UVXAYZBPQDSEFJGHLWNIKCMORT";
+  //  }
+  //  toggleLooping();
+  //}
 }
+
+void toggleLooping() {
+  if (looping) {
+    noLoop();
+  } else {
+    loop();
+  }
+  looping = !looping;
+}
+
 
 void drawleftcircle(float x, float y, float r, float inner, String cipher, float angleOffset) {
   int numsection = 26;
