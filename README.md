@@ -5,7 +5,7 @@ This is a team of 2, consisting of Daniel Wang and Yonna Yeung. <br />
 Chaocipher <br />
 ## Instructions
 
-#Java code:
+# Java code:
 The java code works using makefile. <br />
 The alphabets that you put into the encoder and decoder should be 26 letters with no repeating letters. <br />
 Encoder encrypts the plaintext. <br />
