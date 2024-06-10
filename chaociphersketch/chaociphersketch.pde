@@ -1,5 +1,9 @@
 float leftAngleOffset = 0;
 float rightAngleOffset = 0;
+boolean looping = true; // To keep track of the loop state
+String leftCipher = "BAZOMLYXITSRQDEPCNKJWHUGVF"; //BAZOMLYXITSRQDEPCNKJWHUGVF
+String rightCipher = "BQDSEFGHLWIKCMOPRTUVJXAYZN"; //CKIWLHGFESDQBNZYAXJVUTRPOM
+
 
 void setup() {
   size(800, 500);
@@ -12,8 +16,8 @@ void draw() {
   leftAngleOffset -= 0.05; // Adjust the speed of rotation as needed
   rightAngleOffset += 0.05; // Adjust the speed of rotation as needed
   
-  drawleftcircle(245, 250, 150, 120, "BAZOMLYXITSRQDEPCNKJWHUGVF", leftAngleOffset);//left
-  drawrightcircle(555, 250, 150, 120, "BQDSEFGHLWIKCMOPRTUVJXAYZN", rightAngleOffset);//right
+  drawleftcircle(245, 250, 150, 120, leftCipher, leftAngleOffset);//left
+  drawrightcircle(555, 250, 150, 120, rightCipher, rightAngleOffset);//right
   //SEFGHLWIKCMOPRTUVJXAYZNXQD
   //DQXNZYAXJVUTRPOMCKIWLHGFES
   //QXNZYAXJVUTRPOMCKIWLHGFESD
@@ -46,98 +50,68 @@ void draw() {
 void keyPressed() {
   final int k = keyCode;
   
-    if (k == 'Q') {
+  if (k == 'Q') {
+    leftCipher = "BAZOMLYXITSRQDEPCNKJWHUGVF";
+    //BAZOMLYXITSRQDEPCNKJWHUGVF
+    rightCipher = "BQDSEFGHLWIKCMOPRTUVJXAYZN";
+    //BQDSEFGHLWIKC MOPRTUVJXAYZN
+    //CKIWLHGFESDQB NZYAXJVUTRPOM
     if (looping) {
       noLoop();
-      looping = false;
     } else {
       loop();
-      looping = true;
     }
+    looping = !looping;
   }
   
-  if (k == 'C'){
-    if(looping){
-     background(255);
-     leftAngleOffset -= 0.05; // Adjust the speed of rotation as needed
-  rightAngleOffset += 0.05; // Adjust the speed of rotation as needed
-    drawleftcircle(245, 250, 150, 120, "BVGUHWJKNCPEDFQRSTIXYLMOZA", leftAngleOffset);//left
-    drawrightcircle(555, 250, 150, 120, "MORTUVJXAYZNBPQDSEFGHLWIKC", rightAngleOffset);//right
-    noLoop();
-  labelZenith(245, 210, 150); // Left label zenith
-  labelZenith(555, 210, 150); // Right label zenith
-  labelNadir(245, 630, 150);
-  labelNadir(555, 630, 150);
-  
-  //draw arrow for right circle
-  strokeWeight(2);
-  stroke(255,0,0);
-  drawArrow(245,50,40, HALF_PI); //down from the zenith
-  stroke(0,255,0);
-  drawArrow(245,450,40, -HALF_PI); //up from the nadir
-  //draw arrow for left circle
-  stroke(0,0,255);
-  drawArrow(555,50,40,HALF_PI); //down from the zenith
-   stroke(0,0,255);
-  drawArrow(555,450,40,-HALF_PI); //up from the nadir
-  } else {
-    loop();
+  if (k == 'C') { //Pressing C changes the perumtated alphabet for A
+    if (leftCipher.equals("BAZOMLYXITSRQDEPCNKJWHUGVF")) {
+      leftCipher = "PCNKJWHUGVFBZOMLYXITSRQDAE";
+      rightCipher = "IKCMOPRTUVJXAYWZNBQDSEFGHL";
+      //AXJVUTRPOMCKI LHGFESDQBNZWY
+      //IKCMOPRTUVJXAYWZNBQDSEFGHL
+      
+      
+    } else {
+      leftCipher = "PCNKJWHUGVFBZOMLYXITSRQDAE";
+      rightCipher = "IKCMOPRTUVJXAYWZNBQDSEFGHL";
+    }
+    toggleLooping();
   }
+  
+  if (k == 'A') { //Pressing C changes the perumtated alphabet for T
+    if (leftCipher.equals("PCNKJWHUGVFBZOMLYXITSRQDAE")) {
+      leftCipher = "JWHUGVFBZOCMLYXITSRQDAEPNK";
+      rightCipher = "FGVHLIKCMOPRTUJXAYWZNBQDSE";
+     //TRPOMCKILHVGF ESDQBNZWYAXJU
+     //FGVHLIKCMOPRTUJXAYWZNBQDSE
+      
+    } else {
+      leftCipher = "JWHUGVFBZOCMLYXITSRQDAEPNK";
+      rightCipher = "FGVHLIKCMOPRTUJXAYWZNBQDSE";
+    }
+    toggleLooping();
+  }
+  
+  //if (k == 'T') {
+  //  if (leftCipher.equals("GHWJKNPEDFQRSUTIXYLCMOZABV")) {
+  //    leftCipher = "BAZOMLYXITSRQDEPCNKJWHUGVF";
+  //    rightCipher = "BQDSEFGHLWIKCMOPRTUVJXAYZN";
+  //  } else {
+  //    leftCipher = "GHWJKNPEDFQRSUTIXYLCMOZABV";
+  //    rightCipher = "UVXAYZBPQDSEFJGHLWNIKCMORT";
+  //  }
+  //  toggleLooping();
+  //}
 }
 
-  if (k == 'A'){
-    if(looping){
-     background(255);
-    drawleftcircle(245, 250, 150, 120, "OAAAAAAAAAAAAAAAAAAAAAAAAA", leftAngleOffset);//left
-    drawrightcircle(555, 250, 150, 120, "OBBBBBBBBBBBBBBBBBBBBBBBBB", rightAngleOffset);//right
+void toggleLooping() {
+  if (looping) {
     noLoop();
-      labelZenith(245, 210, 150); // Left label zenith
-  labelZenith(555, 210, 150); // Right label zenith
-  labelNadir(245, 630, 150);
-  labelNadir(555, 630, 150);
-  
-  //draw arrow for right circle
-  strokeWeight(2);
-  stroke(255,0,0);
-  drawArrow(245,50,40, HALF_PI); //down from the zenith
-  stroke(0,255,0);
-  drawArrow(245,450,40, -HALF_PI); //up from the nadir
-  //draw arrow for left circle
-  stroke(0,0,255);
-  drawArrow(555,50,40,HALF_PI); //down from the zenith
-   stroke(0,0,255);
-  drawArrow(555,450,40,-HALF_PI); //up from the nadir
   } else {
     loop();
   }
-  }
-  
-   if (k == 'T'){
-    if(looping){
-     background(255);
-    drawleftcircle(245, 250, 150, 120, "OAAAAAAAAAAAAAAAAAAAAAAAAA", leftAngleOffset);//left
-    drawrightcircle(555, 250, 150, 120, "OBBBBBBBBBBBBBBBBBBBBBBBBB", rightAngleOffset);//right
-    noLoop();
-      labelZenith(245, 210, 150); // Left label zenith
-  labelZenith(555, 210, 150); // Right label zenith
-  labelNadir(245, 630, 150);
-  labelNadir(555, 630, 150);
-  
-  //draw arrow for right circle
-  strokeWeight(2);
-  stroke(255,0,0);
-  drawArrow(245,50,40, HALF_PI); //down from the zenith
-  stroke(0,255,0);
-  drawArrow(245,450,40, -HALF_PI); //up from the nadir
-  //draw arrow for left circle
-  stroke(0,0,255);
-  drawArrow(555,50,40,HALF_PI); //down from the zenith
-   stroke(0,0,255);
-  drawArrow(555,450,40,-HALF_PI); //up from the nadir
-  } else {
-    loop();
-  }
-  }
+  looping = !looping;
 }
 
 
