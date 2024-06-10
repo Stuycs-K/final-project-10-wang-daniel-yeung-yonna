@@ -9,8 +9,8 @@ Picture of John F. Byrne
 Left Alphabet:  BAZOMLYXITSRQDEPCNKJWHUGVF <br />
 Right Alphabet: CKIWLHGFESDQBNZYAXJVUTRPOM <br />
 Plain Text: CAT <br />
-Zenith: The first letter of the alphabet.
-Nadir: The middle letter of the alphabet (letter 14).
+Zenith: The first letter of the alphabet. <br />
+Nadir: The middle letter of the alphabet (letter 14). <br />
 Step 1: Engaging the Disks <br />
 Make sure the left and right disks are engaged. This means verifying that the first letter of the right and left alphabte match up in the disks. <br />
 
