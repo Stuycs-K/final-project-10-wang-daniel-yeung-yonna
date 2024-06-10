@@ -57,4 +57,4 @@ Decryption: <br />
 The process to decrypt this cipher follows the same step by step process, with a few changes. <br />
 In Step 2, instead of rotating the right disk counter clockwise until the first letter of the plaintext is at the zenith, you rotate the left disk clockwise until the first letter of the encrypted text is at the zenith, and the letter at the right disk's zenith is the first letter of the decrypted text. <br />
 
-
+# How Secure is the Chaocipher?
