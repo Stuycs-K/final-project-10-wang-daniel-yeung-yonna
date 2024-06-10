@@ -32,9 +32,9 @@ Starting Alphabet: BAZOMLYXITSRQDEPCNKJWHUGVF <br />
 Remove the second letter of the alphabet, leaving a hole. <br />
 B_ZOMLYXITSRQDEPCNKJWHUGVF <br />
 Move the letters "ZOMLYXITSRQD" over by one, covering the hole and leaving a new hole in the nadir. <br />
-BZOMLYXITSRQD EPCNKJWHUGVF <br />
+B**ZOMLYXITSRQD**_EPCNKJWHUGVF <br />
 Insert the second letter of the alphabet ("A") in the nadir, permutating the left alphabet. <br />
-BZOMLYXITSRQDAEPCNKJWHUGVF <br />
+BZOMLYXITSRQD**A**EPCNKJWHUGVF <br />
 
 Step 4: Permutating the Right Alphabet <br />
 Starting Alphabet: CKIWLHGFESDQBNZYAXJVUTRPOM <br />
@@ -43,9 +43,9 @@ KIWLHGFESDQBNZYAXJVUTRPOMC <br />
 Remove the third letter of the alphabet, leaving a hole. <br />
 KI_LHGFESDQBNZYAXJVUTRPOMC <br />
 Shift the letters "LHGFESDQBNZ" over by one, covering the hole and leaving a new hole in the nadir. <br />
-KILHGFESDQBNZ_YAXJVUTRPOMC <br />
+KI**LHGFESDQBNZ**_YAXJVUTRPOMC <br />
 Insert the third letter of the alphabet ("W") in the nadir, permutating the right alphabet. <br />
-KILHGFESDQBNZWYAXJVUTRPOMC <br />
+KILHGFESDQBNZ**W**YAXJVUTRPOMC <br />
 
 Step 5: Rinse and Repeat <br />
 Using the alphabets that were just permutated as the new starting alphabets and repeat this process until everything is encrypted. <br />
