@@ -51,7 +51,7 @@ KILHGFESDQBNZ**W**YAXJVUTRPOMC <br />
 Step 5: Rinse and Repeat <br />
 Using the alphabets that were just permutated as the new starting alphabets and repeat this process until everything is encrypted. <br />
 Yonna will show how it works using visuals. <br />
-The final encrypted text is "BJP". <br />
+The final encrypted text is "BPJ". <br />
 
 Decryption: <br />
 The process to decrypt this cipher follows the same step by step process, with a few changes. <br />
